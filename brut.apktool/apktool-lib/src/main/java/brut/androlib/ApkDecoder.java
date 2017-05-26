@@ -413,4 +413,8 @@ public class ApkDecoder {
     private Collection<String> mUncompressedFiles;
     private boolean mAnalysisMode = false;
     private int mApi = 15;
+    // By default we do not print SDK version
+    // If set to true using the command line then the
+    // decoder will print <sdk-version> into manifest file
+    private boolean printSdkVersion = false;
 }
