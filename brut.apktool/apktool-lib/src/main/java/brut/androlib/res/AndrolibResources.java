@@ -206,6 +206,7 @@ final public class AndrolibResources {
             out = new FileDirectory(outDir);
             LOGGER.info("Decoding AndroidManifest.xml with resources...");
 
+            fileDecoder.setPrintSdkVersion(mPrintSdkVersion);
             fileDecoder.decodeManifest(inApk, "AndroidManifest.xml", out, "AndroidManifest.xml");
 
             // Remove versionName / versionCode (aapt API 16)
@@ -824,6 +825,10 @@ final public class AndrolibResources {
         }
     }
 
+    public void setPrintSdkVersion(boolean flag) {
+        mPrintSdkVersion = flag;
+    }
+
     public ApkOptions apkOptions;
 
     // TODO: dirty static hack. I have to refactor decoding mechanisms.
@@ -844,6 +849,7 @@ final public class AndrolibResources {
     private String mPackageId = null;
 
     private boolean mSharedLibrary = false;
+    private boolean mPrintSdkVersion = false;
 
     private final static String[] IGNORED_PACKAGES = new String[] {
             "android", "com.htc", "miui", "com.lge", "com.lge.internal", "yi", "com.miui.core", "flyme",

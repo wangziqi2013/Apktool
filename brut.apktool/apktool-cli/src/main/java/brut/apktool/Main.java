@@ -144,6 +144,11 @@ public class Main {
         if (cli.hasOption("api")) {
             decoder.setApi(Integer.parseInt(cli.getOptionValue("api")));
         }
+        if (cli.hasOption("print-sdk-version")) {
+            // This will enable printing of the <uses-sdk> tag in the 
+            // output AndroidManifest file
+            decoder.setPrintSdkVersion(true);
+        }
         if (cli.hasOption("o") || cli.hasOption("output")) {
             outDir = new File(cli.getOptionValue("o"));
             decoder.setOutDir(outDir);

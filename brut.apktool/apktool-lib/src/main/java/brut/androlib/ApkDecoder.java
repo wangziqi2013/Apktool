@@ -79,7 +79,9 @@ public class ApkDecoder {
     }
 
     public void setPrintSdkVersion(bool flag) {
-        printSdkVersion = flag;
+        mPrintSdkVersion = flag;
+        // Propagate this further down below
+        mAndrolib.setPrintSdkVersion(flag);
     }
 
     public void decode() throws AndrolibException, IOException, DirectoryException {
@@ -420,5 +422,5 @@ public class ApkDecoder {
     // By default we do not print SDK version
     // If set to true using the command line then the
     // decoder will print <sdk-version> into manifest file
-    private boolean printSdkVersion = false;
+    private boolean mPrintSdkVersion = false;
 }
