@@ -78,6 +78,10 @@ public class ApkDecoder {
         mApi = api;
     }
 
+    public void setPrintSdkVersion(bool flag) {
+        printSdkVersion = flag;
+    }
+
     public void decode() throws AndrolibException, IOException, DirectoryException {
         try {
             File outDir = getOutDir();
