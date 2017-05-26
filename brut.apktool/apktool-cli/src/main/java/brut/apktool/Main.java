@@ -383,6 +383,9 @@ public class Main {
         Option verboseOption = OptionBuilder.withLongOpt("verbose")
                 .create("v");
 
+        Option printSdkVersionOption = OptionBuilder.withLongOpt("print-sdk-version")
+                .create("k");
+
         // check for advance mode
         if (isAdvanceMode()) {
             DecodeOptions.addOption(noDbgOption);
@@ -406,6 +409,7 @@ public class Main {
         DecodeOptions.addOption(forceDecOption);
         DecodeOptions.addOption(noSrcOption);
         DecodeOptions.addOption(noResOption);
+        DecodeOptions.addOption(printSdkVersionOption);
 
         // add basic build options
         BuildOptions.addOption(outputBuiOption);
