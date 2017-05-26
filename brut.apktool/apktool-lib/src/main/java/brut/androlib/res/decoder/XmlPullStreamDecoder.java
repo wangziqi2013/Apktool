@@ -154,13 +154,13 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
             decode(in, out);
     }
 
-    public setPrintSdkVersion(boolean flag) {
+    public void setPrintSdkVersion(boolean flag) {
         mPrintSdkVersion = flag;
     }
 
     private final XmlPullParser mParser;
     private final ExtXmlSerializer mSerial;
-    private final boolean mPrintSdkVersion = false;
+    private boolean mPrintSdkVersion = false;
 
     private final static Logger LOGGER = Logger.getLogger(XmlPullStreamDecoder.class.getName());
 }

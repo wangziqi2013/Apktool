@@ -78,7 +78,7 @@ public class ApkDecoder {
         mApi = api;
     }
 
-    public void setPrintSdkVersion(bool flag) {
+    public void setPrintSdkVersion(boolean flag) {
         mPrintSdkVersion = flag;
         // Propagate this further down below
         mAndrolib.setPrintSdkVersion(flag);

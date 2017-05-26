@@ -138,6 +138,7 @@ public class ResFileDecoder {
                 OutputStream out = outDir.getFileOutput(outFileName)
         ) {
             XmlPullStreamDecoder manifestDecoder = (XmlPullStreamDecoder) mDecoders.getDecoder("xml");
+
             manifestDecoder.setPrintSdkVersion(mPrintSdkVersion);
             manifestDecoder.decodeManifest(in, out);
         } catch (DirectoryException | IOException ex) {
@@ -150,5 +151,5 @@ public class ResFileDecoder {
     }
 
     private final static Logger LOGGER = Logger.getLogger(ResFileDecoder.class.getName());
-    private final boolean mPrintSdkVersion = false;
+    private boolean mPrintSdkVersion = false;
 }
