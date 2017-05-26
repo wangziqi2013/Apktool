@@ -144,6 +144,11 @@ public class Main {
         if (cli.hasOption("api")) {
             decoder.setApi(Integer.parseInt(cli.getOptionValue("api")));
         }
+        if (cli.hasOption("print-sdk-version")) {
+            // This will enable printing of the <uses-sdk> tag in the 
+            // output AndroidManifest file
+            decoder.setPrintSdkVersion(true);
+        }
         if (cli.hasOption("o") || cli.hasOption("output")) {
             outDir = new File(cli.getOptionValue("o"));
             decoder.setOutDir(outDir);
@@ -378,6 +383,10 @@ public class Main {
         Option verboseOption = OptionBuilder.withLongOpt("verbose")
                 .create("v");
 
+        Option printSdkVersionOption = OptionBuilder.withLongOpt("print-sdk-version")
+                .withDescription("Output <uses-sdk> tag in the AndroidManifest.xml file")
+                .create("k");
+
         // check for advance mode
         if (isAdvanceMode()) {
             DecodeOptions.addOption(noDbgOption);
@@ -401,6 +410,7 @@ public class Main {
         DecodeOptions.addOption(forceDecOption);
         DecodeOptions.addOption(noSrcOption);
         DecodeOptions.addOption(noResOption);
+        DecodeOptions.addOption(printSdkVersionOption);
 
         // add basic build options
         BuildOptions.addOption(outputBuiOption);

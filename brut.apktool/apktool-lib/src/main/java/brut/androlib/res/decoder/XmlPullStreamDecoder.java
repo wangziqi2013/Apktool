@@ -67,13 +67,14 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
                         } else if ("uses-sdk".equalsIgnoreCase(pp.getName())) {
                             try {
                                 hideSdkInfo = parseAttr(pp);
-                                if (hideSdkInfo) {
+                                if (hideSdkInfo && !mPrintSdkVersion) {
                                     return;
                                 }
                             } catch (AndrolibException ignored) {}
                         }
                     } else if (hideSdkInfo && type == XmlPullParser.END_TAG
-                            && "uses-sdk".equalsIgnoreCase(pp.getName())) {
+                            && "uses-sdk".equalsIgnoreCase(pp.getName())
+                            && !mPrintSdkVersion) {
                         return;
                     } else if (hidePackageInfo && type == XmlPullParser.END_TAG
                             && "manifest".equalsIgnoreCase(pp.getName())) {
@@ -153,8 +154,13 @@ public class XmlPullStreamDecoder implements ResStreamDecoder {
             decode(in, out);
     }
 
+    public void setPrintSdkVersion(boolean flag) {
+        mPrintSdkVersion = flag;
+    }
+
     private final XmlPullParser mParser;
     private final ExtXmlSerializer mSerial;
+    private boolean mPrintSdkVersion = false;
 
     private final static Logger LOGGER = Logger.getLogger(XmlPullStreamDecoder.class.getName());
 }

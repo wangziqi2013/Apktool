@@ -761,6 +761,11 @@ public class Androlib {
         mAndRes.close();
     }
 
+    public void setPrintSdkVersion(boolean flag) {
+        mPrintSdkVersion = flag;
+        mAndRes.setPrintSdkVersion(flag);
+    }
+
     private final static Logger LOGGER = Logger.getLogger(Androlib.class.getName());
 
     private final static String SMALI_DIRNAME = "smali";
@@ -782,4 +787,6 @@ public class Androlib {
             "jpg|jpeg|png|gif|wav|mp2|mp3|ogg|aac|mpg|mpeg|mid|midi|smf|jet|rtttl|imy|xmf|mp4|" +
             "m4a|m4v|3gp|3gpp|3g2|3gpp2|amr|awb|wma|wmv|webm|mkv)$");
 
+    // Propagated from ApkDecoder
+    private boolean mPrintSdkVersion = false;
 }
