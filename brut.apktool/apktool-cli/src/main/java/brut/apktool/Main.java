@@ -384,6 +384,7 @@ public class Main {
                 .create("v");
 
         Option printSdkVersionOption = OptionBuilder.withLongOpt("print-sdk-version")
+                .withDescription("Output <uses-sdk> tag in the AndroidManifest.xml file")
                 .create("k");
 
         // check for advance mode
